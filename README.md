@@ -1,2 +1,2 @@
 
-https://github.quramy.io/angular2-graphql-note
+https://quramy.github..io/angular2-graphql-note
