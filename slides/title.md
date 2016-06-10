@@ -1,4 +1,6 @@
 
 # GraphQL with Angular2
 
-by @Quramy 2016.06.10
+by @Quramy
+
+<span>2016.06.10 #fr_wa_lt</span>
