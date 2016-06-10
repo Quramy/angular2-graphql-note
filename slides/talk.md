@@ -45,26 +45,27 @@ GraphQLとReactをいい感じに統合するフレームワーク
 
 ---
 
-### with Flux
-
-<img src="resources/images/flux-diagram-white-background.png" alt="">
-
-<ul class="bad">
-<li>
-  非同期の部分が複雑...
-</li>
-</ul>
-
----
-
-### with Relay
-
-<img src="resources/images/relay-architecture.png" alt="">
-<ul class="good">
-<li>
-  データ管理はRelayに丸投げ！
-</li>
-</ul>
+<div style="display:flex">
+  <div>
+    <p>Flux</p>
+    <img src="resources/images/flux-diagram-white-background.png" alt="" height="200">
+    <ul class="bad" style="font-size: smaller">
+    <li>
+      非同期の部分が複雑...
+    </li>
+    </ul>
+  </div>
+  <p style="width:60px"></p>
+  <div>
+    <p>Relay</p>
+    <img src="resources/images/relay-architecture.png" alt="" height="200">
+    <ul class="good" style="font-size: smaller">
+    <li>
+      データ管理はRelayに丸投げ！
+    </li>
+    </ul>
+  </div>
+</div>
 
 ---
 
@@ -108,14 +109,6 @@ export const User = Relay.createContainer(UserComponent, {
 
 ---
 
-### GraphQL + Relay + Angular2
-
-<img class="no-frame" src="resources/images/graphql_logo.png" alt=""  style="width:160px;">
-<img class="no-frame" src="resources/images/relay_logo.svg" alt=""    style="width:160px; margin: 0 70px;">
-<img class="no-frame" src="resources/images/shield-large.png" alt=""  style="width:160px;">
-
----
-
 ### Relay Core API
 
 RelayからReact依存をひっぺがす取り組み
@@ -124,15 +117,29 @@ RelayからReact依存をひっぺがす取り組み
 
 <a href="https://github.com/andimarek/generic-relay" target="_blank">andimarek/generic-relay</a> に何かそれっぽい奴がいる
 
+
 ---
 
 ### やってみた
 
-demo
+---
+
+#### Reindex + GraphQL + Relay + Angular2
+
+<img class="no-frame" src="resources/images/reindex_logo.svg" alt=""  style="width:180px; margin: 0 40px 0 0;">
+<img class="no-frame" src="resources/images/graphql_logo.png" alt=""  style="width:160px; margin: 0 40px 0 0;">
+<img class="no-frame" src="resources/images/relay_logo.svg" alt=""    style="width:160px; margin: 0 40px 0 0;">
+<img class="no-frame" src="resources/images/shield-large.png" alt=""  style="width:160px;">
 
 ---
 
-1. RelayContainerになるやつにGraphQL書く
+### Demonstration
+
+<iframe class="demo" src="resources/demo/ng2-relay/" frameborder="0" style="height: 480px"></iframe>
+
+---
+
+RelayContainerになるやつにGraphQL書く
 
 ```js
 import * as Relay from 'generic-relay';
@@ -150,7 +157,7 @@ export const UserContainer = Relay.createGenericContainer('UserContainer', {
 
 ---
 
-2. ComponentにRelayContainer結合する
+自作DecoratorでComponentにRelayContainer結合する
 
 ```js
 import { Component , Input } from "@angular/core";
@@ -176,6 +183,10 @@ export class UserComponent {
   constructor(private ngZone: NgZone) { }
 }
 ```
+<p class="smaller">
+参考:
+  <a class="link" href="https://tech.small-improvements.com/2016/02/25/angular-2-and-relay/" target="_blank">tech.small-improvements.com/2016/02/25/angular-2-and-relay/</a>
+</p>
 
 ---
 
@@ -267,14 +278,14 @@ GraphQL, Relayを勉強するのに役立ったリソース, ツール達
 <ul class="good">
   <li>
     <a href="https://chrome.google.com/webstore/detail/graphql-network/igbmhmnkobkjalekgiehijefpkdemocm?hl=en-GB" target="_blank">GraphQL Network</a>
-    <p class="smaller">GraphQLの通信内容を表示してくるChrome Extension. <br> Relayを使ったアプリ開発時に</p>
+    <p class="smaller">GraphQLの通信内容を表示してくるChrome Extension. <br> GraphQLを使ったアプリ開発時に便利</p>
   </li>
   <li>
     <a href="https://facebook.github.io/relay/docs/graphql-relay-specification.html#content" target="_blank">GraphQL Relay Specification</a>
-    <p class="smaller">本家のGuide. RelayでGraphQLを使うときの約束事が書かれている. </p>
+    <p class="smaller">本家のGuide. RelayでGraphQLを使う際の約束事が書かれている. </p>
   </li>
   <li>
     <a href="https://www.reindex.io/" target="_blank">Reindex</a>
-    <p class="smaller">Relayにも対応しているGraphQLのBaaSらしい</p>
+    <p class="smaller">Relayにも対応しているGraphQLのBaaS. <br />Relayを一通り勉強した後に触った方が良いかも</p>
   </li>
 </ul>
