@@ -143,10 +143,14 @@ RelayからReact依存をひっぺがす取り組み
 
 ---
 
+### Code
+
 RelayContainerになるやつにGraphQL書く
 
 ```js
+import { Component , Input , NgZone } from "@angular/core";
 import * as Relay from 'generic-relay';
+import { ConnectRelay } from "../connectRelay";
 
 export const UserContainer = Relay.createGenericContainer('UserContainer', {
   fragments: {
@@ -157,6 +161,7 @@ export const UserContainer = Relay.createGenericContainer('UserContainer', {
     `
   }
 });
+:
 ```
 
 ---
@@ -164,11 +169,8 @@ export const UserContainer = Relay.createGenericContainer('UserContainer', {
 自作DecoratorでComponentにRelayContainer結合する
 
 ```js
-import { Component , Input } from "@angular/core";
-import { NgZone } from "@angular/core";
-import { ConnectRelay } from "../connectRelay";
-
-@ConnectRelay({ container: UserContainer }) // Relayとつなぐオレオレデコレータ
+:
+@ConnectRelay({ container: UserContainer }) // RelayとつなぐオレオレDecorator
 @Component({
   selector: 'user',
   template: `
